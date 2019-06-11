@@ -216,14 +216,14 @@ int SGX_CDECL main(int argc, char *argv[])
      printf("\nMR_ENCLAVE 1:\n");
 
      ///////////////////////////////
-     uint8_t spid_tc[16] = {
+     uint8_t spid_test[16] = {
          0x03, 0xD4, 0x81, 0x28,
          0x36, 0x6F, 0x1C, 0xD7,
          0x4F, 0xCA, 0x49, 0x0D,
          0x9B, 0x85, 0xB6, 0xAB,
      };
 
-     memcpy(spid.id, spid_tc, sizeof spid_tc);
+     memcpy(spid.id, spid_test, sizeof spid_test);
      for(int k=0;k<16;k++)
     	 printf("%x",spid.id[k]);
      uint32_t quote_size;
