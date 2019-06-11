@@ -1,0 +1,23 @@
+/* encl1.edl - Top EDL file. */
+
+enclave {
+    include "sgx_report.h"
+    include "sgx_tseal.h"
+    include "sgx_quote.h"
+    /* 
+     * ocall_encl1_sample - invokes OCALL to display string buffer inside the enclave.
+     *  [in]: copy the string buffer to App outside.
+     *  [string]: specifies 'str' is a NULL terminated buffer.
+     */
+    untrusted {
+        void ocall_encl1_sample([in, string] const char *str);
+    };
+
+
+    trusted {
+    		public int ecall_tuong_test(int a);
+    	    public int ecall_encl1_sample();
+    	    public int ecall_get_mr_enclave([out] unsigned char mr_enclave[32]);
+    	    public int ecall_create_report ([in] sgx_target_info_t* quote_enc_info, [out] sgx_report_t* report);
+    };
+};
